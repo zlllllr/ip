@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Orim {
     public static void main(String[] args) {
         String LINE  = "____________________________________________________________\n";
@@ -6,8 +8,16 @@ public class Orim {
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo + LINE);
-        System.out.println("Hello! I'm Orim.\n" + "What can I do for you?\n" + LINE);
-        System.out.println("Bye. Hope to see you again soon!");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hello from\n" + logo);
+        System.out.println(LINE + "Hello! I'm Orim.\n" + "What can I do for you?\n" + LINE);
+        while (sc.hasNext()) {
+            String temp = sc.next();
+            if (temp.equals("bye")){
+                System.out.println(LINE + "Bye. Hope to see you again soon!" + LINE);
+                System.exit(0);
+            }
+            System.out.println(LINE + temp + "\n" + LINE);
+        }
     }
 }
