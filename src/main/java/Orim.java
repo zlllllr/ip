@@ -9,28 +9,44 @@ public class Orim {
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        String[] taskList = new String[101];
+        Task[] taskList = new Task[101];
         int numOfTask = 1;
         Scanner sc = new Scanner(System.in);
         System.out.println("Hello from\n" + logo);
         System.out.println(LINE + "Hello! I'm Orim.\n" + "What can I do for you?\n" + LINE);
         while (sc.hasNext()) {
-            String temp = sc.nextLine();
-            if (temp.equals("bye")) {
+            String tempString = sc.nextLine();
+            if (tempString.equals("bye")) {
                 System.out.println(LINE + "Bye. Hope to see you again soon!\n" + LINE);
                 System.exit(0);
             }
-            if (temp.equals("list")) {
-                System.out.println(LINE);
+            if (tempString.equals("list")) {
+                System.out.println(LINE + "\nHere are the tasks in your list:\n");
                 for (int i = 1; i < numOfTask; i++) {
-                    System.out.println(i + ". " + taskList[i] + "\n");
+                    Task curTask = taskList[i];
+                    System.out.println(i + ".[" + curTask.getStatusIcon() +
+                            "] " + curTask + "\n");
                 }
                 System.out.println(LINE);
                 continue;
             }
-            taskList[numOfTask] = temp;
+            if (tempString.split(" ")[0].equals("mark")) {
+                System.out.println(LINE);
+                int tempNum = Integer.parseInt(tempString.split(" ")[1]);
+                taskList[tempNum].mark();
+                System.out.println(LINE);
+                continue;
+            }
+            if (tempString.split(" ")[0].equals("unmark")) {
+                System.out.println(LINE);
+                int tempNum = Integer.parseInt(tempString.split(" ")[1]);
+                taskList[tempNum].unmark();
+                System.out.println(LINE);
+                continue;
+            }
+            taskList[numOfTask] = new Task(tempString);
             numOfTask++;
-            System.out.println(LINE + "added: " + temp + "\n" + LINE);
+            System.out.println(LINE + "added: " + tempString + "\n" + LINE);
         }
     }
 }
