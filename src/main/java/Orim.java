@@ -9,8 +9,7 @@ public class Orim {
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        Task[] taskList = new Task[101];
-        int numOfTask = 1;
+        ArrayList<Task> taskList = new ArrayList<Task>();
         Scanner sc = new Scanner(System.in);
         System.out.println("Hello from\n" + logo);
         System.out.println(LINE + "Hello! I'm Orim.\n" + "What can I do for you?\n" + LINE);
@@ -23,26 +22,41 @@ public class Orim {
                     System.exit(0);
                 case "list":
                     System.out.println("\nHere are the tasks in your list:\n");
-                    for (int i = 1; i < numOfTask; i++) {
-                        Task curTask = taskList[i];
-                        System.out.println(i + "." + curTask + "\n");
+                    for (int i = 1; i < taskList.size() + 1; i++) {
+                        System.out.println(i + "." + taskList.get(i - 1) + "\n");
                     }
                     break;
                 case "mark":
-                    int markNum = sc.nextInt();
-                    taskList[markNum].mark();
+                    taskList.get(sc.nextInt()).mark();
                     break;
                 case "unmark":
-                    int unmarkNum = sc.nextInt();
-                    taskList[unmarkNum].unmark();
+                    taskList.get(sc.nextInt()).unmark();
                     break;
-                /*case "todo":
-                    taskList
-                    System*/
-                default:
-                    System.out.println(LINE);
+                case "todo":
+                    Todo tempT = new Todo(sc.nextLine().trim());
+                    taskList.add(tempT);
+                    System.out.println("Got it. I've added this task:\n " + tempT.toString());
+                    System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+                    break;
+                case "deadline":
+                    String dStr = sc.nextLine();
+                    Deadline tempD = new Deadline(dStr.split("/by")[0].trim(),
+                            dStr.split("/by")[1].trim());
+                    taskList.add(tempD);
+                    System.out.println("Got it. I've added this task:\n " + tempD.toString());
+                    System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+                    break;
+                case "event":
+                    String eStr = sc.nextLine();
+                    Event tempE = new Event(eStr.split("/from")[0].trim(),
+                            eStr.split("/from")[1].split("/to")[0].trim(),
+                            eStr.split("/from")[1].split("/to")[1].trim());
+                    taskList.add(tempE);
+                    System.out.println("Got it. I've added this task:\n " + tempE.toString());
+                    System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+                    break;
             }
-
+            System.out.println(LINE);
         }
     }
 }
