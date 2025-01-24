@@ -15,38 +15,34 @@ public class Orim {
         System.out.println("Hello from\n" + logo);
         System.out.println(LINE + "Hello! I'm Orim.\n" + "What can I do for you?\n" + LINE);
         while (sc.hasNext()) {
-            String tempString = sc.nextLine();
-            if (tempString.equals("bye")) {
-                System.out.println(LINE + "Bye. Hope to see you again soon!\n" + LINE);
-                System.exit(0);
+            String cmd = sc.next();
+            System.out.println(LINE);
+            switch (cmd) {
+                case "bye":
+                    System.out.println("Bye. Hope to see you again soon!\n" + LINE);
+                    System.exit(0);
+                case "list":
+                    System.out.println("\nHere are the tasks in your list:\n");
+                    for (int i = 1; i < numOfTask; i++) {
+                        Task curTask = taskList[i];
+                        System.out.println(i + "." + curTask + "\n");
+                    }
+                    break;
+                case "mark":
+                    int markNum = sc.nextInt();
+                    taskList[markNum].mark();
+                    break;
+                case "unmark":
+                    int unmarkNum = sc.nextInt();
+                    taskList[unmarkNum].unmark();
+                    break;
+                /*case "todo":
+                    taskList
+                    System*/
+                default:
+                    System.out.println(LINE);
             }
-            if (tempString.equals("list")) {
-                System.out.println(LINE + "\nHere are the tasks in your list:\n");
-                for (int i = 1; i < numOfTask; i++) {
-                    Task curTask = taskList[i];
-                    System.out.println(i + ".[" + curTask.getStatusIcon() +
-                            "] " + curTask + "\n");
-                }
-                System.out.println(LINE);
-                continue;
-            }
-            if (tempString.split(" ")[0].equals("mark")) {
-                System.out.println(LINE);
-                int tempNum = Integer.parseInt(tempString.split(" ")[1]);
-                taskList[tempNum].mark();
-                System.out.println(LINE);
-                continue;
-            }
-            if (tempString.split(" ")[0].equals("unmark")) {
-                System.out.println(LINE);
-                int tempNum = Integer.parseInt(tempString.split(" ")[1]);
-                taskList[tempNum].unmark();
-                System.out.println(LINE);
-                continue;
-            }
-            taskList[numOfTask] = new Task(tempString);
-            numOfTask++;
-            System.out.println(LINE + "added: " + tempString + "\n" + LINE);
+
         }
     }
 }
