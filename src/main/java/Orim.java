@@ -33,6 +33,11 @@ public class Orim {
                     case "unmark":
                         taskList.get(sc.nextInt()).unmark();
                         break;
+                    case "delete":
+                        Task remTask = taskList.remove(sc.nextInt() + 1);
+                        System.out.println("Noted. I've removed this task:\n " + remTask.toString());
+                        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+                        break;
                     case "todo":
                         String todoDes = sc.nextLine().trim();
                         if (todoDes.equals("")) {
