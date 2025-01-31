@@ -21,6 +21,10 @@ class Task {
         System.out.println("OK, I've marked this task as not done yet:\n " + this.toString());
     }
 
+    public String generateLog() { // generate log of the task
+        return "";
+    }
+
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }
