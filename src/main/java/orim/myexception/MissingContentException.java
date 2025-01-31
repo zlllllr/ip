@@ -1,3 +1,5 @@
+package orim.myexception;
+
 public class MissingContentException extends Exception{
     private final String type;
     MissingContentException(String errorMessage, String type) {

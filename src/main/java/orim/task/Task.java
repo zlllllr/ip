@@ -1,4 +1,8 @@
-class Task {
+package orim.task;
+
+import java.time.LocalDate;
+
+public class Task {
     protected String description;
     protected boolean isDone;
 
