@@ -8,8 +8,14 @@ public class Event extends Task {
         this.to = to;
     }
 
+    public Event(String isDone, String description, String from, String to) {
+        super(description, isDone.equals("1"));
+        this.from = from;
+        this.to = to;
+    }
+
     public String generateLog() {
-        return "E|" + (isDone ? 1 : 0) + "|" + super.description + "|" + from + "|" + to;
+        return "E," + (isDone ? 1 : 0) + "," + super.description + "," + from + "," + to;
     }
 
     public String toString() {
