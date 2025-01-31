@@ -1,17 +1,20 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task {
-    private final String from;
-    private final String to;
+    private final LocalDate from;
+    private final LocalDate to;
 
     public Event(String description, String from, String to) {
         super(description);
-        this.from = from;
-        this.to = to;
+        this.from = LocalDate.parse(from);
+        this.to = LocalDate.parse(to);
     }
 
     public Event(String isDone, String description, String from, String to) {
         super(description, isDone.equals("1"));
-        this.from = from;
-        this.to = to;
+        this.from = LocalDate.parse(from);
+        this.to = LocalDate.parse(to);
     }
 
     public String generateLog() {
@@ -19,6 +22,7 @@ public class Event extends Task {
     }
 
     public String toString() {
-        return "[E]" + super.toString() + "(from: " + from + " to: " + to + ")";
+        return "[E]" + super.toString() + "(from: " + from.format(DateTimeFormatter.ofPattern("MMM d yyyy"))
+                + " to: " + to.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
 }

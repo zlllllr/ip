@@ -1,14 +1,17 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Deadline extends Task {
-    private String time;
+    private LocalDate time;
 
     public Deadline(String description, String time) {
         super(description);
-        this.time = time;
+        this.time = LocalDate.parse(time);
     }
 
     public Deadline(String isDone, String description, String time) {
         super(description, isDone.equals("1"));
-        this.time = time;
+        this.time = LocalDate.parse(time);
     }
 
     public String generateLog() {
@@ -16,6 +19,6 @@ public class Deadline extends Task {
     }
 
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + time + ")";
+        return "[D]" + super.toString() + " (by: " + time.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
 }
