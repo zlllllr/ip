@@ -1,3 +1,5 @@
+import orim.storage.Storage;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -6,7 +8,32 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Orim {
-    public static void main(String[] args) throws FileNotFoundException {
+
+    private Storage storage;
+    private TaskList tasks;
+    private Ui ui;
+
+    public Orim(String filePath) {
+        ui = new Ui();
+        storage = new Storage(filePath);
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (DukeException e) {
+            ui.showLoadingError();
+            tasks = new TaskList();
+        }
+    }
+
+    public void run() {
+        //...
+    }
+
+    public static void main(String[] args) {
+        new Duke("data/tasks.txt").run();
+    }
+
+    public static void main(String[] args) {
+
         String LINE = "____________________________________________________________\n";
         ArrayList<Task> taskList = new ArrayList<Task>();
         Scanner sc = new Scanner(System.in);
