@@ -7,6 +7,11 @@ class Task {
         this.isDone = false;
     }
 
+    public Task(String description, boolean isDone) {
+        this.description = description;
+        this.isDone = isDone;
+    }
+
     private String getStatusIcon() {
         return (isDone ? "X" : " "); // mark done task with X
     }
@@ -19,6 +24,10 @@ class Task {
     public void unmark() {
         this.isDone = false;
         System.out.println("OK, I've marked this task as not done yet:\n " + this.toString());
+    }
+
+    public String generateLog() { // generate log of the task
+        return "";
     }
 
     public String toString() {

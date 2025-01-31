@@ -6,6 +6,15 @@ public class Deadline extends Task {
         this.time = time;
     }
 
+    public Deadline(String isDone, String description, String time) {
+        super(description, isDone.equals("1"));
+        this.time = time;
+    }
+
+    public String generateLog() {
+        return "D," + (isDone ? 1 : 0) + "," + super.description + "," + time;
+    }
+
     public String toString() {
         return "[D]" + super.toString() + " (by: " + time + ")";
     }
