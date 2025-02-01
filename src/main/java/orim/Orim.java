@@ -1,3 +1,5 @@
+package orim;
+
 import orim.command.Command;
 import orim.myexception.MyException;
 import orim.parser.Parser;
