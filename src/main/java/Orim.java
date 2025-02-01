@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public class Orim {
 
-    private Storage storage;
+    private final Storage storage;
     private TaskList tasks;
-    private Ui ui;
+    private final Ui ui;
 
     public Orim(String filePath) {
         ui = new Ui();
@@ -25,19 +25,19 @@ public class Orim {
     }
 
     public void run() {
-        ui.showWelcome();
+        Ui.showWelcome();
         boolean isExit = false;
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
-                ui.showLine(); // show the divider line ("_______")
+                Ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
                 c.execute(tasks, ui, storage);
                 isExit = c.isExit();
             } catch (MyException e) {
-                ui.showError(e.getMessage());
+                Ui.showError(e.getMessage());
             } finally {
-                ui.showLine();
+                Ui.showLine();
             }
         }
     }
