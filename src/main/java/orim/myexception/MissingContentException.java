@@ -1,12 +1,7 @@
 package orim.myexception;
 
-public class MissingContentException extends Exception{
-    private final String type;
-    MissingContentException(String errorMessage, String type) {
+public class MissingContentException extends MyException{
+    public MissingContentException(String errorMessage) {
         super(errorMessage);
-        this.type = type;
-    }
-    public String toString() {
-        return type;
     }
 }
