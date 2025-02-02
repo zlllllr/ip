@@ -34,6 +34,10 @@ public class Task {
         return "";
     }
 
+    public boolean containKeyword(String searchKey) {
+        return description.contains(searchKey);
+    }
+
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }

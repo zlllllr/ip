@@ -68,6 +68,9 @@ public class Parser {
         case "list":
             temp = new DisplayCommand();
             break;
+        case "find":
+            temp = new SearchCommand(strings.get(0).substring(5));
+            break;
         default:
             throw new IncorrectInputException(" OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
