@@ -1,10 +1,8 @@
 package orim.task;
 
-<<<<<<< HEAD
 /**
  * Represents Users' tasks.
  */
->>>>>>> branch-A-CodingStandard
 public class Task {
     protected String description;
     protected boolean isDone;
@@ -47,6 +45,10 @@ public class Task {
      */
     public String generateLog() { // generate log of the task
         return "";
+    }
+
+    public boolean containKeyword(String searchKey) {
+        return description.contains(searchKey);
     }
 
     public String toString() {

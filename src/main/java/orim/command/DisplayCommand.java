@@ -7,7 +7,7 @@ import orim.ui.Ui;
 /**
  * Represents a command to display the current TaskList.
  */
-public class DisplayCommand extends Command{
+public class DisplayCommand extends Command {
 
     public DisplayCommand() {
         super(false);

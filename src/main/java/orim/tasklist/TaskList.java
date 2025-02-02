@@ -57,4 +57,14 @@ public class TaskList {
         return temp;
     }
 
+    public TaskList find(String searchKey) {
+        TaskList ans = new TaskList();
+        for (int i = 0; i < this.size(); i++) {
+            if (this.get(i).containKeyword(searchKey)) {
+                ans.add(this.get(i));
+            }
+        }
+        return ans;
+    }
+
 }
