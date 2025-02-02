@@ -4,12 +4,20 @@ import orim.storage.Storage;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+/**
+ * Represents a command to display the current TaskList.
+ */
 public class DisplayCommand extends Command{
 
     public DisplayCommand() {
         super(false);
     }
 
+    /**
+     * @param tasks TaskList that contain all the tasks.
+     * @param ui deals with interactions with the user.
+     * @param file deals with loading tasks from the file and saving tasks in the file.
+     */
     public void execute(TaskList  tasks, Ui ui, Storage file) {
         Ui.showListing(tasks);
     }
