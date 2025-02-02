@@ -1,8 +1,10 @@
 package orim.task;
 
+<<<<<<< HEAD
 /**
  * Represents Users' tasks.
  */
+>>>>>>> branch-A-CodingStandard
 public class Task {
     protected String description;
     protected boolean isDone;
