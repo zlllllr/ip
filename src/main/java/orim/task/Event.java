@@ -3,6 +3,9 @@ package orim.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represent a subclass of Task which happens in a period of time.
+ */
 public class Event extends Task {
     private final LocalDate from;
     private final LocalDate to;
@@ -19,6 +22,12 @@ public class Event extends Task {
         this.to = LocalDate.parse(to);
     }
 
+    /**
+     * Transforms the state and detail of the tasks to a string.
+     * Will be store in the data file and be reloaded when user open Orim again.
+     *
+     * @return log to represents the state and detail of the tasks
+     */
     public String generateLog() {
         return "E," + (isDone ? 1 : 0) + "," + super.description + "," + from + "," + to;
     }

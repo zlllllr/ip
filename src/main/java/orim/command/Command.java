@@ -5,6 +5,9 @@ import orim.task.Task;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+/**
+ * Stores the action that needs to perform on the tasks.
+ */
 public abstract class Command {
 
     private final boolean isExit;
@@ -17,7 +20,14 @@ public abstract class Command {
         this.isExit = isExit;
     }
 
-    public abstract void execute(TaskList tasks, Ui ui, Storage file); // excutes the command
+    /**
+     * Executes the command to perform its functionality.
+     *
+     * @param tasks TaskList that contain all the tasks.
+     * @param ui deals with interactions with the user.
+     * @param file deals with loading tasks from the file and saving tasks in the file.
+     */
+    public abstract void execute(TaskList tasks, Ui ui, Storage file);
 
     public boolean isExit() {
         return this.isExit;

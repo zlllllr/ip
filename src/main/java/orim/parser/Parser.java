@@ -13,12 +13,22 @@ import orim.ui.Ui;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Deals with making sense of the user command.
+ */
 public class Parser {
 
     public Parser() {
 
     }
 
+    /**
+     * Generates a specific command according to users input.
+     *
+     * @param command full input that receive from user.
+     * @return subclass of Command according to users' input.
+     * @throws MissingContentException when the information for adding Task is incomplete.
+     */
     public static Command parse(String command) throws MissingContentException {
         Command temp = new Command() {
             @Override

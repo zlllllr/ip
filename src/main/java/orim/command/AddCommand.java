@@ -5,6 +5,9 @@ import orim.task.Task;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+/**
+ * Represents a command to add tasks to the TaskList.
+ */
 public class AddCommand extends Command {
 
     private final Task task;
@@ -14,6 +17,11 @@ public class AddCommand extends Command {
         this.task = task;
     }
 
+    /**
+     * @param tasks TaskList that contain all the tasks.
+     * @param ui deals with interactions with the user.
+     * @param file deals with loading tasks from the file and saving tasks in the file.
+     */
     public void execute(TaskList tasks, Ui ui, Storage file) {
         tasks.add(task);
         System.out.println("Got it. I've added this task:\n " + task.toString());

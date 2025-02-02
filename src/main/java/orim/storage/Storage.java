@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Deals with loading tasks from the file and saving tasks in the file.
+ */
 public class Storage {
 
     private final File file;
@@ -21,7 +24,13 @@ public class Storage {
         this.file = new File(pathname);
     }
 
-    public ArrayList<Task> load() throws FileNotFoundException { // load tasks from device
+    /**
+     * Loads tasks from device.
+     *
+     * @return a history of users' tasks.
+     * @throws FileNotFoundException when the file is not found.
+     */
+    public ArrayList<Task> load() throws FileNotFoundException {
         Scanner scf = new Scanner(file);
         ArrayList<Task> tasks = new ArrayList<Task>();
         while (scf.hasNext()) {
@@ -42,8 +51,14 @@ public class Storage {
         return tasks;
     }
 
-    public void store(TaskList tasks) throws IOException { // save tasks to the device
-        FileWriter fw = new FileWriter(file); //storing the history when exit the bot
+    /**
+     * Stores the history when exit the bot.
+     *
+     * @param tasks the current TaskList.
+     * @throws IOException when file cannot be written by FileWriter.
+     */
+    public void store(TaskList tasks) throws IOException {
+        FileWriter fw = new FileWriter(file);
         String tempLog = "";
         for (int i = 1; i < tasks.size() + 1; i++) {
             tempLog = tempLog + tasks.get(i - 1).generateLog() + "\n";

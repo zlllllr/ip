@@ -9,6 +9,9 @@ import orim.ui.Ui;
 
 import java.io.IOException;
 
+/**
+ * Represents a chatbot that allows user to keep track of their tasks.
+ */
 public class Orim {
 
     private final Storage storage;
