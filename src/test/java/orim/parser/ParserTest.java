@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class ParserTest {
     @Test
-    public void parsar_incorrectInput_exceptionThrown() {
+    public void parser_incorrectInput_exceptionThrown() {
         try {
             Parser.parse("wrongInput");
             fail();

@@ -47,6 +47,13 @@ public class Orim {
         }
     }
 
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        return "Duke heard: " + input;
+    }
+
     public static void main(String[] args) {
         new Orim("data/tasks.txt").run();
     }
