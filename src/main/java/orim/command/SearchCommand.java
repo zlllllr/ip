@@ -15,9 +15,9 @@ public class SearchCommand extends Command {
 
     }
 
-    public void execute(TaskList tasks, Ui ui, Storage file) {
+    public String execute(TaskList tasks, Ui ui, Storage file) {
         TaskList ans = tasks.find(searchKey);
-        Ui.showListing(ans);
+        return Ui.showListing(ans);
     }
 
 }

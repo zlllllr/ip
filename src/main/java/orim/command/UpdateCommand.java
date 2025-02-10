@@ -25,11 +25,11 @@ public class UpdateCommand extends Command {
      * @param ui deals with interactions with the user.
      * @param file deals with loading tasks from the file and saving tasks in the file.
      */
-    public void execute(TaskList tasks, Ui ui, Storage file) {
+    public String execute(TaskList tasks, Ui ui, Storage file) {
         if (shouldMark) {
-            tasks.get(index).mark();
+            return tasks.get(index).mark();
         } else {
-            tasks.get(index).unmark();
+            return tasks.get(index).unmark();
         }
     }
 

@@ -24,17 +24,19 @@ public class Task {
     /**
      * Marks the task as done.
      */
-    public void mark() {
+    public String mark() {
         this.isDone = true;
         System.out.println("Nice! I've marked this task as done:\n " + this.toString());
+        return "Nice! I've marked this task as done:\n " + this.toString();
     }
 
     /**
      * Marks the task as not done.
      */
-    public void unmark() {
+    public String unmark() {
         this.isDone = false;
         System.out.println("OK, I've marked this task as not done yet:\n " + this.toString());
+        return "OK, I've marked this task as not done yet:\n " + this.toString();
     }
 
     /**

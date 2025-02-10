@@ -51,7 +51,12 @@ public class Orim {
      * Generates a response for the user's chat message.
      */
     public String getResponse(String input) {
-        return "Duke heard: " + input;
+        try {
+            Command c = Parser.parse(input);
+            return c.execute(tasks, ui, storage);
+        } catch (MyException e) {
+            return e.getMessage();
+        }
     }
 
     public static void main(String[] args) {

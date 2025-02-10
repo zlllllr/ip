@@ -26,11 +26,13 @@ public class Ui {
         System.out.println("Bye. Hope to see you again soon!\n");
     }
 
-    public static void showListing(TaskList tasks) { // shows listing of tasks
-        System.out.println("\nHere are the tasks in your list:\n");
+    public static String showListing(TaskList tasks) { // shows listing of tasks
+        String log = "\nHere are the tasks in your list:\n";
         for (int i = 1; i < tasks.size() + 1; i++) {
-            System.out.println(i + "." + tasks.get(i - 1) + "\n");
+            log += i + "." + tasks.get(i - 1) + "\n";
         }
+        System.out.println(log);
+        return log;
     }
 
     public static void showError(String errorMessage) { // returns error message

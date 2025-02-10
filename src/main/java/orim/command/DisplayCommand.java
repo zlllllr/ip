@@ -18,8 +18,8 @@ public class DisplayCommand extends Command {
      * @param ui deals with interactions with the user.
      * @param file deals with loading tasks from the file and saving tasks in the file.
      */
-    public void execute(TaskList  tasks, Ui ui, Storage file) {
-        Ui.showListing(tasks);
+    public String execute(TaskList  tasks, Ui ui, Storage file) {
+        return Ui.showListing(tasks);
     }
 
 }

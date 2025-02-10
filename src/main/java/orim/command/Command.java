@@ -27,7 +27,7 @@ public abstract class Command {
      * @param ui deals with interactions with the user.
      * @param file deals with loading tasks from the file and saving tasks in the file.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage file);
+    public abstract String execute(TaskList tasks, Ui ui, Storage file);
 
     public boolean isExit() {
         return this.isExit;

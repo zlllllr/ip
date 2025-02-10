@@ -22,9 +22,11 @@ public class DeleteCommand extends Command {
      * @param ui deals with interactions with the user.
      * @param file deals with loading tasks from the file and saving tasks in the file.
      */
-    public void execute(TaskList tasks, Ui ui, Storage file){
+    public String execute(TaskList tasks, Ui ui, Storage file){
         Task temp = tasks.delete(index);
         System.out.println("Noted. I've removed this task:\n " + temp.toString());
         System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+        return "Noted. I've removed this task:\n " + temp.toString() + "\n"
+            + "Now you have " + tasks.size() + " tasks in the list.";
     }
 }
