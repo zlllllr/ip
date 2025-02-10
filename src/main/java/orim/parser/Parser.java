@@ -32,8 +32,8 @@ public class Parser {
     public static Command parse(String command) throws MissingContentException {
         Command temp = new Command() {
             @Override
-            public void execute(TaskList tasks, Ui ui, Storage file) {
-
+            public String execute(TaskList tasks, Ui ui, Storage file) {
+                return "";
             }
         };
         List<String> strings = Arrays.stream(command.split("/"))

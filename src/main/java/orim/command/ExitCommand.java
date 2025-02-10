@@ -21,13 +21,14 @@ public class ExitCommand extends Command {
      * @param file deals with loading tasks from the file and saving tasks in the file.
      * @throws RuntimeException if file cannot be open with FileWriter.
      */
-    public void execute(TaskList tasks, Ui ui, Storage file) {
+    public String execute(TaskList tasks, Ui ui, Storage file) {
         Ui.showGoodbye();
         try {
             file.store(tasks);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return "Bye. Hope to see you again soon!\n";
     }
 
 
