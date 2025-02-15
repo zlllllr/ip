@@ -41,6 +41,10 @@ public class Task {
         return "OK, I've marked this task as not done yet:\n " + this.toString();
     }
 
+    public boolean getIsMark() {
+        return this.isDone;
+    }
+
     /**
      * Transforms the state and detail of the tasks to a string.
      * Will be store in the data file and be reloaded when user open Orim again.

@@ -67,4 +67,14 @@ public class TaskList {
         return ans;
     }
 
+    public TaskList findUnmarkTasks() {
+        TaskList ans = new TaskList();
+        for (int i = 0; i < this.size(); i++) {
+            if (!this.get(i).getIsMark()) {
+                ans.add(this.get(i));
+            }
+        }
+        return ans;
+    }
+
 }

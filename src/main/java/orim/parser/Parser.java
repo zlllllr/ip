@@ -79,7 +79,12 @@ public class Parser {
             temp = new DisplayCommand();
             break;
         case "find":
-            temp = new SearchCommand(strings.get(0).substring(5));
+            String description = strings.get(0).substring(5);
+            if (description.equals("unmarks")) {
+                temp = new SearchCommand(description, true);
+                break;
+            }
+            temp = new SearchCommand(description);
             break;
         default:
             throw new IncorrectInputException(" OOPS!!! I'm sorry, but I don't know what that means :-(");
