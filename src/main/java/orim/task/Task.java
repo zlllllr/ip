@@ -8,11 +8,13 @@ public class Task {
     protected boolean isDone;
 
     public Task(String description) {
+        assert !description.equals("") : "description cannot be empty";
         this.description = description;
         this.isDone = false;
     }
 
     public Task(String description, boolean isDone) {
+        assert !description.equals("") : "description cannot be empty";
         this.description = description;
         this.isDone = isDone;
     }
