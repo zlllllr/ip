@@ -1,6 +1,6 @@
 # Orim User Guide
 
-![Screenshot of using Orim to track all todo tasks.](/Ui.png)
+![Screenshot of using Orim to track all todo tasks.](/docs/Ui.png)
 
 Orim frees your mind of having to remember things you need to do.
 
