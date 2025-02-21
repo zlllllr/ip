@@ -17,3 +17,4 @@ bin/
 text-ui-test/EXPECTED-UNIX.TXT
 src/main/data/history.txt
 data/tasks.txt
+tasks.txt

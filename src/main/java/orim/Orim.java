@@ -27,13 +27,12 @@ public class Orim {
         try {
             tasks = new TaskList(storage.load());
         } catch (IOException e) {
-            //Ui.showError(e.getMessage());
             tasks = new TaskList();
             File file = new File(filePath);
             try {
                 file.createNewFile();
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                Ui.showError(ex.getMessage());
             }
         }
     }
@@ -69,7 +68,7 @@ public class Orim {
     }
 
     public static void main(String[] args) {
-        new Orim("data/tasks.txt").run();
+        new Orim("tasks.txt").run();
     }
 
 }
