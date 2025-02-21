@@ -18,6 +18,20 @@ Got it. I've added this task:
 Now you have 1 tasks in the list.
 ```
 
+## Deleting tasks
+
+It allows you to delete ith task from the current tasklist.
+
+Example: `delete 1`
+
+It will delete the first task in the tasklist and shows you how many tasks do you left.
+
+```
+Noted. I've removed this task:
+ [T][ ] return book
+Now you have 1 tasks in the list.
+```
+
 ## Marking finished tasks
 
 It allows you to mark ith task as done.
@@ -31,7 +45,48 @@ Nice! I've marked this task as done:
  [T][X] return book
 ```
 
-## find tasks that needs to be done
+## Unmarking tasks
+
+It allows you to unmark ith task.
+
+Example: `unmark 1`
+
+It will unmark the first task which is submit homework as not done.
+
+```
+OK, I've marked this task as not done yet:
+ [T][ ] submit homework
+```
+
+## Listing current tasks
+
+It shows all current tasks and their status in the tasklist.
+
+Example: `list`
+
+It will show all current tasks and their status in the tasklist.
+
+```
+Here are the tasks in your list:
+1.[T][ ] submit homework
+2.[T][ ] return book
+```
+
+## finding tasks according to descrption
+
+It will filter out all tasks in the tasklist that contains keyword that user input.
+
+Example: `find homework`
+
+It shows a list of task that have "homework" in task descrption.
+
+```
+Here are the tasks in your list:
+1.[T][ ] submit cs2103 homework
+2.[T][ ] submit cs3243 homework
+```
+
+## finding tasks that needs to be done
 
 It will show you all tasks that are in the tasklist and does not been marked.
 
