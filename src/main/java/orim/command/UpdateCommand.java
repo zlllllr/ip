@@ -4,6 +4,8 @@ import orim.storage.Storage;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to update the state of the task(done or not done).
  */
@@ -27,9 +29,21 @@ public class UpdateCommand extends Command {
      */
     public String execute(TaskList tasks, Ui ui, Storage file) {
         if (shouldMark) {
-            return tasks.get(index).mark();
+            String output = tasks.get(index).mark();
+            try {
+                file.store(tasks);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return output;
         } else {
-            return tasks.get(index).unmark();
+            String output = tasks.get(index).unmark();
+            try {
+                file.store(tasks);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return output;
         }
     }
 

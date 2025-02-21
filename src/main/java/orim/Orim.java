@@ -7,6 +7,9 @@ import orim.storage.Storage;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -24,8 +27,14 @@ public class Orim {
         try {
             tasks = new TaskList(storage.load());
         } catch (IOException e) {
-            Ui.showError(e.getMessage());
+            //Ui.showError(e.getMessage());
             tasks = new TaskList();
+            File file = new File(filePath);
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 

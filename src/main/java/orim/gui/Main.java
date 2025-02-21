@@ -8,11 +8,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import orim.Orim;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
 
-    private Orim orim = new Orim("data/tasks.txt");
+    private Orim orim;
+
+    {
+        orim = new Orim("tasks.txt");
+    }
 
     @Override
     public void start(Stage stage) {

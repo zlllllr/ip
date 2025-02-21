@@ -5,6 +5,8 @@ import orim.task.Task;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to delete task from TaskList.
  */
@@ -26,6 +28,11 @@ public class DeleteCommand extends Command {
         Task temp = tasks.delete(index);
         System.out.println("Noted. I've removed this task:\n " + temp.toString());
         System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+        try {
+            file.store(tasks);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return "Noted. I've removed this task:\n " + temp.toString() + "\n"
             + "Now you have " + tasks.size() + " tasks in the list.";
     }

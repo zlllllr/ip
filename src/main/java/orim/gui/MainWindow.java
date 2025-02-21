@@ -30,6 +30,9 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        dialogContainer.getChildren().addAll(
+                DialogBox.getOrimDialog("Hello! I'm Orim.\n" + "What can I do for you?\n", orimImage)
+        );
     }
 
     /** Injects the Orim instance */

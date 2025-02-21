@@ -5,6 +5,8 @@ import orim.task.Task;
 import orim.tasklist.TaskList;
 import orim.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to add tasks to the TaskList.
  */
@@ -26,6 +28,11 @@ public class AddCommand extends Command {
         tasks.add(task);
         System.out.println("Got it. I've added this task:\n " + task.toString());
         System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+        try {
+            file.store(tasks);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return "Got it. I've added this task:\n " + task.toString() + "\n"
             + "Now you have " + tasks.size() + " tasks in the list.";
     }
