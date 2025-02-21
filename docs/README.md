@@ -1,30 +1,46 @@
-# Duke User Guide
+# Orim User Guide
 
-// Update the title above to match the actual product name
+![Screenshot of using Orim to track all todo tasks.](/Ui.png)
 
-// Product screenshot goes here
+Orim frees your mind of having to remember things you need to do.
 
-// Product intro goes here
+## Adding todos/deadlines/events
 
-## Adding deadlines
+It allows you to add todos/deadlines/events to the tasklist
 
-// Describe the action and its outcome.
+Example: `todo return book`
 
-// Give examples of usage
-
-Example: `keyword (optional arguments)`
-
-// A description of the expected outcome goes here
+A todo task with descrption of "return book" will be added to the list.
 
 ```
-expected output
+Got it. I've added this task:
+ [T][ ] return book
+Now you have 1 tasks in the list.
 ```
 
-## Feature ABC
+## Marking finished tasks
 
-// Feature details
+It allows you to mark ith task as done.
 
+Example: `mark 1`
 
-## Feature XYZ
+It will mark the first task which is return book as done. The finished task will still inside the tasklist until you delete it, so you can see your progess.
 
-// Feature details
+```
+Nice! I've marked this task as done:
+ [T][X] return book
+```
+
+## find tasks that needs to be done
+
+It will show you all tasks that are in the tasklist and does not been marked.
+
+Example: `find unmarks`
+
+It returns the list of unmark tasks.
+
+```
+Here are the tasks in your list:
+1.[T][ ] submit homework
+2.[T][ ] shopping
+```
