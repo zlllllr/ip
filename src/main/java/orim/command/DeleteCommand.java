@@ -26,8 +26,6 @@ public class DeleteCommand extends Command {
      */
     public String execute(TaskList tasks, Ui ui, Storage file){
         Task temp = tasks.delete(index);
-        System.out.println("Noted. I've removed this task:\n " + temp.toString());
-        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
         try {
             file.store(tasks);
         } catch (IOException e) {

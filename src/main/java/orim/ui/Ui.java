@@ -31,7 +31,6 @@ public class Ui {
         for (int i = 1; i < tasks.size() + 1; i++) {
             log += i + "." + tasks.get(i - 1) + "\n";
         }
-        System.out.println(log);
         return log;
     }
 

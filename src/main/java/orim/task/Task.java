@@ -28,7 +28,6 @@ public class Task {
      */
     public String mark() {
         this.isDone = true;
-        System.out.println("Nice! I've marked this task as done:\n " + this.toString());
         return "Nice! I've marked this task as done:\n " + this.toString();
     }
 
@@ -37,7 +36,6 @@ public class Task {
      */
     public String unmark() {
         this.isDone = false;
-        System.out.println("OK, I've marked this task as not done yet:\n " + this.toString());
         return "OK, I've marked this task as not done yet:\n " + this.toString();
     }
 
